@@ -410,7 +410,7 @@ class VEmbeds:
 
     def CARA_SECA(self, result: str) -> Embed:
         embed = Embed(
-            title='Cara SECA',
+            title='Cara Seca',
             description=f'Result: {result}',
             colour=self.__colors.GREEN
         )
