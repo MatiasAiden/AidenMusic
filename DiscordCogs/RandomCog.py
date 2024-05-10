@@ -34,13 +34,13 @@ class RandomCog(Cog):
         embed = self.__embeds.RANDOM_NUMBER(a, b, x)
         await ctx.send(embed=embed)
 
-    @command(name='cara', help=helper.HELP_CARA, description=helper.HELP_CARA_LONG, aliases=['coroa'])
+    @command(name='cara', help=helper.HELP_CARA, description=helper.HELP_CARA_LONG, aliases=['seca'])
     async def cara(self, ctx: Context) -> None:
         x = random()
         if x < 0.5:
             result = 'cara'
         else:
-            result = 'coroa'
+            result = 'seca'
 
         embed = self.__embeds.CARA_COROA(result)
         await ctx.send(embed=embed)
