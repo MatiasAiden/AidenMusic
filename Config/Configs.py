@@ -61,7 +61,7 @@ class VConfigs(Singleton):
             self.MAX_PRELOAD_SONGS = int(os.getenv('MAX_PRELOAD_SONGS', 15))
             self.MAX_SONGS_HISTORY = int(os.getenv('MAX_SONGS_HISTORY', 15))
 
-            self.INVITE_MESSAGE = os.getenv('INVITE_MESSAGE', """To invite Vulkan to your own server, click [here]({}). 
+            self.INVITE_MESSAGE = os.getenv('INVITE_MESSAGE', """To invite AidenMusic to your own server, click [here]({}). 
             Or use this direct URL: {}""")
 
             self.MY_ERROR_BAD_COMMAND = os.getenv('MY_ERROR_BAD_COMMAND', 'This string serves to verify if some error was raised by myself on purpose')

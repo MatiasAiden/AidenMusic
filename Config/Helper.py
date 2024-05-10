@@ -44,7 +44,7 @@ class Helper(Singleton):
             self.HELP_HELP = f'Use {config.BOT_PREFIX}help "command" for more info.'
             self.HELP_HELP_LONG = f'Use {config.BOT_PREFIX}help command for more info about the command selected.'
             self.HELP_INVITE = 'Send the invite URL to call Vulkan to your server.'
-            self.HELP_INVITE_LONG = 'Send an message in text channel with a URL to be used to invite Vulkan to your own server.\n\nArguments: None.'
+            self.HELP_INVITE_LONG = 'Send an message in text channel with a URL to be used to invite AidenMusic to your own server.\n\nArguments: None.'
             self.HELP_RANDOM = 'Return a random number between 1 and x.'
             self.HELP_RANDOM_LONG = 'Send a randomly selected number between 1 and the number you pass.\n\nRequired: Number to be a valid number.\nArguments: 1º Any number to be used as range.'
             self.HELP_CHOOSE = 'Choose randomly one item passed.'

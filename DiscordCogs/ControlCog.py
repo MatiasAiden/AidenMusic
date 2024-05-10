@@ -84,7 +84,7 @@ class ControlCog(Cog):
         txt = self.__config.INVITE_MESSAGE.format(invite_url, invite_url)
 
         embed = Embed(
-            title="Invite Vulkan",
+            title="Invite AidenMusic",
             description=txt,
             colour=self.__colors.BLUE
         )
