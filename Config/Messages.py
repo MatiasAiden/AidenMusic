@@ -8,8 +8,8 @@ class Messages(Singleton):
         if not super().created:
             self.__emojis = VEmojis()
             configs = VConfigs()
-            self.STARTUP_MESSAGE = 'Starting Vulkan...'
-            self.STARTUP_COMPLETE_MESSAGE = 'Vulkan is now operating.'
+            self.STARTUP_MESSAGE = 'Starting AidenMusic...'
+            self.STARTUP_COMPLETE_MESSAGE = 'AidenMusic is now operating.'
 
             self.SONGINFO_UPLOADER = "Uploader: "
             self.SONGINFO_DURATION = "Duration: "
