@@ -1,12 +1,12 @@
 <h1 align="center">
-  <br>
-  ![AidenMusic](https://github.com/MatiasAiden/AidenMusic/assets/166278244/17a76bd5-5640-4602-a703-9835e08c05e4)
-  <br>
-  DC Solutions Opsgenie Alerts Auto ACK
+
+![AidenMusic2](https://github.com/MatiasAiden/AidenMusic/assets/166278244/a0d42d5d-e72b-4505-9db4-049808c11058)
+
+🔊 AidenMusic 🎧
   <br>
 </h1>
 
-<h4 align="center">Script que automatiza el ACK de los alertados de opsgenie.</h4>
+<h4 align="center">Disfruta de la música en tu servidor Discord</h4>
 
 <p align="center">
   <a href="#Funciones">Funciones</a> •
