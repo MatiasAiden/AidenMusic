@@ -408,9 +408,9 @@ class VEmbeds:
             description=self.__messages.PLAYLIST_CLEAR
         )
 
-    def CARA_COROA(self, result: str) -> Embed:
+    def CARA_SECA(self, result: str) -> Embed:
         embed = Embed(
-            title='Cara Coroa',
+            title='Cara SECA',
             description=f'Result: {result}',
             colour=self.__colors.GREEN
         )

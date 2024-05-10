@@ -49,8 +49,8 @@ class Helper(Singleton):
             self.HELP_RANDOM_LONG = 'Send a randomly selected number between 1 and the number you pass.\n\nRequired: Number to be a valid number.\nArguments: 1º Any number to be used as range.'
             self.HELP_CHOOSE = 'Choose randomly one item passed.'
             self.HELP_CHOOSE_LONG = 'Choose randomly one item passed in this command.\n\nRequire: Itens to be separated by comma.\nArguments: As much as you want.'
-            self.HELP_CARA = 'Return cara or coroa.'
-            self.HELP_CARA_LONG = 'Return cara or coroa.'
+            self.HELP_CARA = 'Return cara or seca.'
+            self.HELP_CARA_LONG = 'Return cara or seca.'
 
             self.SLASH_QUEUE_DESCRIPTION = f'Number of queue page, there is only {config.MAX_SONGS_IN_PAGE} musics by page'
             self.SLASH_MOVE_HELP = 'Moves a song from position pos1 to pos2 in queue.'

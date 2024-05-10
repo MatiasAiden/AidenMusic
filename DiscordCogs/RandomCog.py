@@ -42,7 +42,7 @@ class RandomCog(Cog):
         else:
             result = 'seca'
 
-        embed = self.__embeds.CARA_COROA(result)
+        embed = self.__embeds.CARA_SECA(result)
         await ctx.send(embed=embed)
 
     @command(name='choose', help=helper.HELP_CHOOSE, description=helper.HELP_CHOOSE_LONG, aliases=['escolha', 'pick'])
