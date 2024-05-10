@@ -1,110 +1,54 @@
-<h1 align="center">Vulkan</h1> 
+<h1 align="center">
+  <br>
+  ![AidenMusic](https://github.com/MatiasAiden/AidenMusic/assets/166278244/17a76bd5-5640-4602-a703-9835e08c05e4)
+  <br>
+  DC Solutions Opsgenie Alerts Auto ACK
+  <br>
+</h1>
 
-
-A Music Discord Bot, that plays *Youtube*, *Spotify*, *Deezer* links or raw queries. Vulkan is open source, so everyone can fork this project, follow the instructions and use it in their own way, executing it in your own machine or hosting in others machines to work 24/7.
-
-Vulkan uses multiprocessing and asynchronous Python modules to maximize Music Player response time, so the player doesn't lag when many commands are being processed and it can play in multiples discord serves at the same time without affecting the Music Player response time.
-
+<h4 align="center">Script que automatiza el ACK de los alertados de opsgenie.</h4>
 
 <p align="center">
-  <img src="./Assets/playermenu.jpg" />
+  <a href="#Funciones">Funciones</a> •
+  <a href="#Como se usa">Como se usa</a> •
+  <a href="#Descargar">Descargar</a> •
+  <a href="#Creditos">Creditos</a> •
 </p>
 
 
-#  **Music 🎧**
-- Play musics from Youtube, Spotify and Deezer links (Albums, Artists, Playlists and Tracks).
-- Play musics in multiple discord server at the same time.
-- The player contains buttons to shortcut some commands. 
-- Support for the new Discord Slash commands.
-- Search for all musics in Queue using buttons.
-- Shortcut the playing of one song using dropdown menu.
-- Manage the volume of the songs.
-- Manage the loop of one or all playing musics.
-- Manage the order and remove musics from the queue.
-- Shuffle the musics queue order.
-- Automatically clean the sended messages so it doesn't fill up your server.
+## Funciones
 
+* Detecta automaticamente cuando ingresa un alertado en el opsgenie y le da click
+  - Se le agrega un intervalo de tiempo entre 25-45 segundos para hacer click (Aleatoreo) y de 5-10 segundos y se presentan mas de un alertado en lista.
+* Actualiza la pagina de opsgenie cada 7 segundos si no presenta actividad alguna
+  - Si detecta actividad, espera hasta que se ejecute el click para luego dar el refresh a la pagina.
+* Uso completamente automatizado, cargado en una VM del laboratorio de DCS.
+* Crea una carpeta de logs
+  - Que almacena todos los logs con la fecha de cuando se guardo.
+* Se agrego un archivo WhereIsMouse
+  - Te da la cordenada donde esta el mouse para que la anotes y reemplaces en la posicion del mouse.
 
-<p align="center">
-  <img src="./Assets/vulkancommands.jpg" />
-</p>
+## Como se usa
 
+Para clonar esta repositorio, vas a necesitar [Git](https://git-scm.com) y [Python](https://www.python.org/downloads/) (que viene con [pip](https://pypi.org/project/pip/)) intalados en tu PC
 
-<p align="center">
-  <img src="./Assets/queuemessage.jpg" />
-</p>
+```bash
+# Clone el repositorio.
+$ git clone https://github.com/Implementation-Working-DCS/alertOPS-auto-ack.git
 
+# Ir al repo
+$ cd alertOPS-auto-ack
 
-<hr>
-<br>
+# Instalar dependencias
+$ pip install pyautogui
+$ pip install opencv-python
+$ pip install numpy
+$ pip install logging 
 
-## **Setting up for yourself** 
-
-
-### **Requirements**
-Installation of ``Python 3.10+`` and the dependencies in the requirements.txt file, creation of your own Bot in Discord and Spotify Keys. <br>
-To install the dependencies type this command in the terminal, in the project root folder.
- 
-```
-pip install -r requirements.txt
-```
-### **🔑 API Keys**
-You have to create your own discord Bot and store your Bot Token 
- * Your Discord Application - [Discord](https://discord.com/developers)
- * You own Spotify Keys - [Spotify](https://developer.spotify.com/dashboard/applications)
-
-    - This information must be stored in an .env file, explained further.
-
-###  **Installation of FFMPEG**<br>
-FFMPEG is a module that will be used to play music, you must have this configured in your machine
-*FFMPEG must be configured in the PATH for Windows users. Check this [YoutubeVideo](https://www.youtube.com/watch?v=r1AtmY-RMyQ&t=114s&ab_channel=TroubleChute).* <br><br>
-You can download the executables in this link `https://www.ffmpeg.org/download.html` and then put the .exe files inside a ffmpeg\bin folder in your C:\ folder. Do not forget to add 'ffmpeg\bin' to your PATH.
-
-
-### **.Env File Example**
-This is an example of how your .env file (located in root) should look like.
-```env
-BOT_TOKEN=Your_Own_Bot_Token
-SPOTIFY_ID=Your_Own_Spotify_ID
-SPOTIFY_SECRET=Your_Own_Spotify_Secret
-BOT_PREFIX=Your_Wanted_Prefix_For_Vulkan
-SHOULD_AUTO_DISCONNECT_WHEN_ALONE=True #all settings can be set like this
-#etc... All settings can be set this way
+# Iniciar la app
+$ python3 -m --verbose ClickerACK.py
 ```
 
-### **⚙️ Configs**
-The bot's configuration is stored in the [.env](.env) file, you can change the prefix and the bot token there, as well as all the other configurations.
-Take a look in the [Settings page](.github/Docs/SETTINGS.md) to personalize the Bot for you.
+## Descargar
 
-
-### **Initialization**
-- Go to [Discord](https://discord.com/developers) and invite your Bot to your own server
-- Run ```python main.py``` in console to start
-- Give this project a nice 🌟
-
-### **🐳 Docker**
-You can also run this project in a Docker container. You can find the instructions to run this project in a Docker container in the [Docker Instructions](.github/Docs/DOCKER.md) page.
-
-
-<br>
-<hr>
-<br>
-
-
-## **🚀 Heroku (Not free anymore)**
-> *Heroku doesn't offer free host services anymore.* <br>
-
-To deploy and run your Bot in Heroku 24/7, follow the instructions in the [Heroku Instructions](.github/Docs/HEROKU.md) page.
-
-## 🧪 Tests
-The tests were written manually with no package due to problems with async function in other packages, to execute them type in root: <br>
-`python run_tests.py`<br>
-
-
-## 📖 License
-This program is free software: you can redistribute it and/or modify it under the terms of the [MIT License](https://github.com/RafaelSolVargas/Vulkan/blob/master/LICENSE).
-
-
-
-## 🏗️ Contributing
-  If you are interested in upgrading this project i will be very happy to receive a PR or Issue from you. See TODO project to see if i'm working in some feature now.  
+Podes descargar [aca](https://github.com/Implementation-Working-DCS/dcs-whatsapp-chatbot-ai/releases) el ultimo release del archivo.
