@@ -16,17 +16,18 @@
 </p>
 
 
-## Funciones
-
-* Detecta automaticamente cuando ingresa un alertado en el opsgenie y le da click
-  - Se le agrega un intervalo de tiempo entre 25-45 segundos para hacer click (Aleatoreo) y de 5-10 segundos y se presentan mas de un alertado en lista.
-* Actualiza la pagina de opsgenie cada 7 segundos si no presenta actividad alguna
-  - Si detecta actividad, espera hasta que se ejecute el click para luego dar el refresh a la pagina.
-* Uso completamente automatizado, cargado en una VM del laboratorio de DCS.
-* Crea una carpeta de logs
-  - Que almacena todos los logs con la fecha de cuando se guardo.
-* Se agrego un archivo WhereIsMouse
-  - Te da la cordenada donde esta el mouse para que la anotes y reemplaces en la posicion del mouse.
+#  **Music 🎧**
+- Play musics from Youtube, Spotify and Deezer links (Albums, Artists, Playlists and Tracks).
+- Play musics in multiple discord server at the same time.
+- The player contains buttons to shortcut some commands. 
+- Support for the new Discord Slash commands.
+- Search for all musics in Queue using buttons.
+- Shortcut the playing of one song using dropdown menu.
+- Manage the volume of the songs.
+- Manage the loop of one or all playing musics.
+- Manage the order and remove musics from the queue.
+- Shuffle the musics queue order.
+- Automatically clean the sended messages so it doesn't fill up your server.
 
 ## Como se usa
 
@@ -49,6 +50,15 @@ $ pip install logging
 $ python3 -m --verbose ClickerACK.py
 ```
 
+### **Create tu .Env**
+Principalmente el BOT_TOKEN, BOT_PREFIX, lo de spotify si no lo vas a usar podes comentarlo o eliminarlo
+```env
+BOT_TOKEN=Your_Own_Bot_Token
+SPOTIFY_ID=Your_Own_Spotify_ID
+SPOTIFY_SECRET=Your_Own_Spotify_Secret
+BOT_PREFIX=Your_Wanted_Prefix_For_Vulkan
+SHOULD_AUTO_DISCONNECT_WHEN_ALONE=True #all settings can be set like this
+#etc... All settings can be set this way
 ## Descargar
+```
 
-Podes descargar [aca](https://github.com/Implementation-Working-DCS/dcs-whatsapp-chatbot-ai/releases) el ultimo release del archivo.
