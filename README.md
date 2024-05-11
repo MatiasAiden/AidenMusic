@@ -9,48 +9,41 @@
 <h4 align="center">Disfruta de la música en tu servidor Discord</h4>
 
 <p align="center">
-  <a href="#Funciones">Funciones</a> •
+  <a href="#Music 🎧">Music 🎧</a> •
   <a href="#Como se usa">Como se usa</a> •
-  <a href="#Descargar">Descargar</a> •
-  <a href="#Creditos">Creditos</a> •
+  <a href="#Crear tu .env">Crear tu .env</a>
 </p>
 
 
-#  **Music 🎧**
-- Play musics from Youtube, Spotify and Deezer links (Albums, Artists, Playlists and Tracks).
-- Play musics in multiple discord server at the same time.
-- The player contains buttons to shortcut some commands. 
-- Support for the new Discord Slash commands.
-- Search for all musics in Queue using buttons.
-- Shortcut the playing of one song using dropdown menu.
-- Manage the volume of the songs.
-- Manage the loop of one or all playing musics.
-- Manage the order and remove musics from the queue.
-- Shuffle the musics queue order.
-- Automatically clean the sended messages so it doesn't fill up your server.
+## **Music 🎧**
+- Reproducir música desde enlaces de Youtube, Spotify y Deezer (Álbumes, Artistas, Listas de reproducción y Pistas).
+- Reproduce música en varios servidores de Discord al mismo tiempo.
+- El reproductor contiene botones interactivos.
+- Soporte para los nuevos comandos Discord Slash.
+- Busque todas las músicas en la cola usando los botones.
+- Atajo la reproducción de una canción usando el menú desplegable.
+- Gestionar el volumen de las canciones.
+- Gestionar el bucle de una o todas las músicas en reproducción.
+- Gestionar el pedido y eliminar músicas de la cola.
+- Mezclar el orden de la cola de música.
+- Limpia automáticamente los mensajes enviados para que no llene tu servidor.
 
 ## Como se usa
 
-Para clonar esta repositorio, vas a necesitar [Git](https://git-scm.com) y [Python](https://www.python.org/downloads/) (que viene con [pip](https://pypi.org/project/pip/)) intalados en tu PC
+Para clonar esta repositorio, vas a necesitar [Git](https://git-scm.com) y [Python](https://www.python.org/downloads/) (que viene con [pip](https://pypi.org/project/pip/)) 
 
 ```bash
 # Clone el repositorio.
-$ git clone https://github.com/Implementation-Working-DCS/alertOPS-auto-ack.git
+$ git clone https://github.com/MatiasAiden/AidenMusic.git
 
-# Ir al repo
-$ cd alertOPS-auto-ack
-
-# Instalar dependencias
-$ pip install pyautogui
-$ pip install opencv-python
-$ pip install numpy
-$ pip install logging 
+# Crear tu env
+$vi .env
 
 # Iniciar la app
-$ python3 -m --verbose ClickerACK.py
+$ python3 main.py
 ```
 
-### **Create tu .Env**
+### **Crear tu .env**
 Principalmente el BOT_TOKEN, BOT_PREFIX, lo de spotify si no lo vas a usar podes comentarlo o eliminarlo
 ```env
 BOT_TOKEN=Your_Own_Bot_Token
