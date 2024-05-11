@@ -44,7 +44,7 @@ $ python3 main.py
 ```
 
 
-### **Crear tu .env**
+## **Crear tu .env**
 Principalmente el BOT_TOKEN, BOT_PREFIX, lo de spotify si no lo vas a usar podes comentarlo o eliminarlo
 ```env
 BOT_TOKEN=Your_Own_Bot_Token
@@ -56,3 +56,13 @@ SHOULD_AUTO_DISCONNECT_WHEN_ALONE=True #all settings can be set like this
 ## Descargar
 ```
 
+## **Funciones Adicionales**
+Se adicionaron selectores "random" como funcionalidad bonus
+
+```
+🎲 RANDOM
+
+cara   - Devuelve "CARA O SECA"
+random - Devuelve un número aleatorio entre 1 y x.
+choose - Elige aleatoriamente entre items
+```
