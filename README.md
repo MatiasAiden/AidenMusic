@@ -37,11 +37,12 @@ Para clonar esta repositorio, vas a necesitar [Git](https://git-scm.com) y [Pyth
 $ git clone https://github.com/MatiasAiden/AidenMusic.git
 
 # Crear tu env
-$vi .env
+$ vi .env
 
 # Iniciar la app
 $ python3 main.py
 ```
+
 
 ### **Crear tu .env**
 Principalmente el BOT_TOKEN, BOT_PREFIX, lo de spotify si no lo vas a usar podes comentarlo o eliminarlo
