@@ -1,4 +1,7 @@
 import asyncio
+import logging
+import sys
+import datetime
 from time import sleep, time
 from urllib.parse import parse_qs, urlparse
 from Music.VulkanInitializer import VulkanInitializer
@@ -14,6 +17,46 @@ from Config.Configs import VConfigs
 from Music.VulkanBot import VulkanBot
 from Music.Downloader import Downloader
 from Parallelism.Commands import VCommands, VCommandsType
+
+# # # LOGS # # #
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+# Crea un manejador de archivos que registre los errores en un archivo .txt
+handler = logging.FileHandler('AidenMusic.log')
+handler.setLevel(logging.INFO)
+
+# Crea un formateador y añádelo al manejador
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+
+# Añade el manejador al logger
+logger.addHandler(handler)
+
+# # # Logs de sistema # # # 
+
+class Logger(object):
+    def __init__(self, filename="Default.log"):
+        self.terminal = sys.stdout
+        self.log = logging.getLogger(filename)
+        self.log.setLevel(logging.INFO)
+        handler = logging.FileHandler(filename)
+        handler.setFormatter(logging.Formatter('%(asctime)s - %(message)s'))
+        self.log.addHandler(handler)
+
+    def write(self, message):
+        # Elimina la nueva línea al final del mensaje
+        message = message.rstrip('\n')
+        # Solo escribe el mensaje si no está vacío
+        if message:
+            self.terminal.write(message)
+            self.log.info(message)
+
+    def flush(self):
+        pass
+
+sys.stdout = Logger("AidenMusicActivity.log")
 
 
 class TimeoutClock:
