@@ -40,6 +40,8 @@ class CallbackButton(Button):
         # Clear the last sended message in this category and add the new one
         if message:
             await self.__messagesManager.addMessageAndClearPrevious(self.__guildID, self.__category, message, response.view)
+        
+        await interaction.followup.send("comando procesado")
 
     def set_view(self, view: View):
         self.__view = view

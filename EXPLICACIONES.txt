@@ -1,0 +1,111 @@
+Parallelism
+
+AbstractPlayersManager.py: 
+
+Este archivo define una clase abstracta llamada AbstractPlayersManager. 
+Esta clase declara varios métodos que deben ser implementados por cualquier clase que la herede. 
+Los métodos incluyen funciones para enviar comandos a un reproductor, obtener la lista de reproducción 
+y el bloqueo de un reproductor, verificar si existe un reproductor para un servidor, crear un reproductor para un servidor,
+restablecer un reproductor y mostrar la canción que se está reproduciendo.
+
+
+Commands.py: 
+
+Este archivo define una enumeración VCommandsType que representa los diferentes tipos de comandos que puede manejar el bot. 
+También define una clase VCommands que representa un comando. Cada comando tiene un tipo (una instancia de VCommandsType) y posiblemente algunos argumentos.
+
+
+
+AbstractPlayersManager.py: 
+
+Este archivo define una clase abstracta llamada AbstractPlayersManager. 
+Esta clase declara varios métodos que deben ser implementados por cualquier clase que la herede. 
+Los métodos incluyen funciones para enviar comandos a un reproductor, obtener la lista de reproducción y el bloqueo de un reproductor, 
+verificar si existe un reproductor para un servidor, crear un reproductor para un servidor, restablecer un reproductor y mostrar la canción que se está reproduciendo.
+Commands.py: Este archivo define una enumeración VCommandsType que representa los diferentes tipos de comandos que puede manejar el bot. 
+También define una clase VCommands que representa un comando. Cada comando tiene un tipo (una instancia de VCommandsType) y posiblemente algunos argumentos.
+
+
+
+ProcessingExecutor.py 
+
+define una clase ProcessCommandsExecutor que se utiliza para ejecutar comandos en un bot de música de Discord. Aquí te explico qué hace cada parte del código:
+
+sendNowPlayingToGuild: Este método de clase envía un mensaje al canal de texto especificado que muestra la canción que se está reproduciendo actualmente. 
+Si la lista de reproducción está en modo de repetición de una sola canción, el título del mensaje será “Reproduciendo en bucle una canción”.
+De lo contrario, será “Canción reproduciéndose”. El mensaje incluirá un embed con información sobre la canción 
+y una vista con varios botones que los usuarios pueden usar para controlar la reproducción de la música.
+
+__getPlayerViewForGuild y __getPlayerView: Estos métodos de clase e instancia, respectivamente, 
+crean una vista con varios botones que los usuarios pueden usar para controlar la reproducción de la música. 
+Los botones incluyen “Atrás”, “Pausa”, “Reproducir”, “Detener”, “Saltar”, “Canciones”, “Repetir una”, “Repetir desactivado” y “Repetir todo”.
+
+__getPlayerButtonsForGuild y __getPlayerButtons: Estos métodos de clase e instancia, respectivamente, crean los botones que se añaden a la vista. 
+Cada botón es una instancia de HandlerButton, que es una subclase de Button. Cuando se hace clic en un botón, se ejecuta un manejador específico.
+
+
+
+
+ProcessPlayerManager.py
+
+define una clase ProcessPlayerManager que se utiliza para gestionar los procesos de los reproductores de música en tu bot de Discord. Aquí te explico qué hace cada parte del código:
+
+sendCommandToPlayer: Este método envía un comando a un reproductor de música en un servidor específico. Si el reproductor no existe, puede crear uno nuevo si forceCreation es True.
+getPlayerPlaylist y getPlayerLock: Estos métodos devuelven la lista de reproducción y el bloqueo de un reproductor de música en un servidor específico, respectivamente.
+verifyIfPlayerExists: Este método verifica si existe un reproductor de música para un servidor específico.
+createPlayerForGuild: Este método crea un nuevo reproductor de música para un servidor específico.
+resetPlayer: Este método reinicia un reproductor de música en un servidor específico.
+__getRunningPlayerInfo: Este método privado devuelve la información de un reproductor de música en un servidor específico.
+__createProcessPlayerInfo: Este método privado crea un nuevo objeto PlayerProcessInfo para un servidor específico.
+__stopPossiblyRunningProcess: Este método privado detiene un reproductor de música en un servidor específico si está en ejecución.
+__recreateProcess: Este método privado recrea un reproductor de música para un servidor específico, manteniendo la lista de reproducción existente.
+__recreateProcess: Este método privado recrea un reproductor de música para un servidor específico, manteniendo la lista de reproducción existente.
+__listenToCommands: Este método privado se ejecuta en un hilo separado y escucha los comandos enviados desde el proceso del reproductor de música. Cuando recibe un comando, lo maneja de acuerdo a su tipo.
+__terminateProcess: Este método privado termina el proceso del reproductor de música para un servidor específico y elimina todas las estructuras asociadas a él.
+__sleepingProcess: Este método privado pone el proceso del reproductor de música para un servidor específico en un estado de “dormido”, cerrando todas las estructuras del proceso excepto la lista de reproducción.
+__putCommandInQueue: Este método privado pone un comando en una cola para ser enviado al proceso del reproductor de música.
+showNowPlaying: Este método envía un mensaje al canal de texto del servidor que muestra la canción que se está reproduciendo actualmente.
+VManager y VProxy: Estas son clases auxiliares utilizadas para la gestión de procesos y la creación de proxies para objetos compartidos entre procesos, respectivamente.
+
+
+
+
+El archivo ProcessPlayer.py 
+
+define una clase ProcessPlayer que se utiliza para reproducir canciones en un proceso separado. Aquí te explico qué hace cada parte del código:
+
+Logger: Esta clase se utiliza para registrar mensajes en un archivo de registro y en la salida estándar.
+TimeoutClock: Esta clase se utiliza para ejecutar una función de devolución de llamada después de un cierto período de tiempo.
+ProcessPlayer: Esta es la clase principal que se utiliza para reproducir canciones. Hereda de la clase Process de Python, lo que significa que se ejecuta en un proceso separado.
+run y _run: Estos métodos se utilizan para iniciar el proceso. Crean una nueva instancia del bot, se conectan al canal de voz de Discord y comienzan a escuchar comandos y a reproducir canciones.
+__set_volume: Este método se utiliza para ajustar el volumen del reproductor.
+__verifyIfIsPlaying: Este método verifica si el reproductor está reproduciendo o pausando una canción.
+__playPlaylistSongs y __playSong: Estos métodos se utilizan para reproducir las canciones de la lista de reproducción.
+__playSong: Este método privado se utiliza para reproducir una canción. Si el cliente de voz no está conectado, intenta conectarse. Si ya está reproduciendo una canción, devuelve la canción a la lista de reproducción. Luego verifica si la canción todavía está disponible y, si no lo está, la descarga de nuevo. Finalmente, reproduce la canción y envía un comando NOW_PLAYING a la cola de envío.
+__playNext: Este método privado se utiliza para reproducir la siguiente canción en la lista de reproducción. Si se produce un error al reproducir la canción actual, imprime el error. Luego verifica si se ha forzado a detener el reproductor. Si no es así, obtiene la siguiente canción de la lista de reproducción y la reproduce. Si no hay más canciones en la lista de reproducción, desactiva el bucle de la lista de reproducción, establece la canción actual en None, establece __playing en False, envía un comando SLEEPING a la cola de envío y libera el semáforo para finalizar el proceso.
+__verifyIfSongAvailable: Este método privado verifica si la fuente de una canción todavía está disponible. Si la URL de la canción tiene un parámetro de consulta expire y el tiempo actual más la duración de la canción más 10 minutos supera el valor de expire, la canción no está disponible. Si la canción no tiene un parámetro de consulta expire y han pasado más de 5 horas desde la descarga de la canción, la canción no está disponible.
+__downloadSongAgain: Este método privado se utiliza para descargar una canción de nuevo. Se utiliza cuando la fuente de una canción ya no está disponible.
+__playPrev: Este método privado se utiliza para reproducir la canción anterior en la lista de reproducción.
+__restartCurrentSong: Este método privado se utiliza para reiniciar la canción actual.
+__commandsReceiver: Este método privado se ejecuta en un hilo separado y escucha los comandos enviados desde el proceso principal. Cuando recibe un comando, lo maneja de acuerdo a su tipo.
+__pause, __reset, __stop: Estos métodos privados se utilizan para pausar, reiniciar y detener la reproducción de la música, respectivamente.
+__resume: Este método privado se utiliza para reanudar la reproducción de la música si el cliente de voz está en pausa. Si hay una canción actual pero el cliente de voz no está reproduciendo, intenta reproducir la canción actual.
+__skip: Este método privado se utiliza para saltar la canción actual. Si el cliente de voz está reproduciendo una canción, detiene la reproducción. Si el bot se ha desconectado por alguna razón pero todavía hay canciones para reproducir, intenta reiniciar la canción actual.
+__forceBotDisconnectAndStop: Este método privado se utiliza para forzar la desconexión del bot y detener la reproducción de la música.
+__createBotInstance: Este método privado se utiliza para crear una nueva instancia del bot.
+__timeoutHandler: Este método privado se utiliza como manejador de tiempo de espera. Si el bot está conectado y está reproduciendo o pausando una canción, y el bot no está solo en el canal, reinicia el temporizador. Si no, detiene la reproducción de la música, desconecta el bot, envía un comando SLEEPING a la cola de envío y libera el semáforo para finalizar el proceso.
+__isBotAloneInChannel: Este método privado verifica si el bot está solo en el canal de voz.
+__ensureDiscordConnection: Este método privado se utiliza para asegurarse de que el bot está conectado a Discord.
+__connectToVoiceChannel: Este método privado se utiliza para conectar el bot a un canal de voz.
+
+
+
+
+
+
+
+
+
+
+
+

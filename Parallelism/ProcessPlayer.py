@@ -18,22 +18,6 @@ from Music.VulkanBot import VulkanBot
 from Music.Downloader import Downloader
 from Parallelism.Commands import VCommands, VCommandsType
 
-# # # LOGS # # #
-
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
-
-# Crea un manejador de archivos que registre los errores en un archivo .txt
-handler = logging.FileHandler('AidenMusic.log')
-handler.setLevel(logging.INFO)
-
-# Crea un formateador y añádelo al manejador
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-
-# Añade el manejador al logger
-logger.addHandler(handler)
-
 # # # Logs de sistema # # # 
 
 class Logger(object):
@@ -57,6 +41,22 @@ class Logger(object):
         pass
 
 sys.stdout = Logger("AidenMusicActivity.log")
+
+# # # LOGS # # #
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+# Crea un manejador de archivos que registre los errores en un archivo .txt
+handler = logging.FileHandler('AidenMusic.log')
+handler.setLevel(logging.INFO)
+
+# Crea un formateador y añádelo al manejador
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+
+# Añade el manejador al logger
+logger.addHandler(handler)
 
 
 class TimeoutClock:
