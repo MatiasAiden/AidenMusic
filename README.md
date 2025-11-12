@@ -42,6 +42,20 @@ $ vi .env
 # Si no llegarias a tener PIP instalado se instalaria (ejemplo para debian)
 $ sudo apt install pip
 
+# Te recomiendo crear un entorno virtual para instalar los requirements
+
+# 1. Instalar el paquete necesario
+$ sudo apt install python3-venv -y
+
+# 2. Crear el entorno virtual
+$ python3 -m venv venv
+
+# 3. Activarlo
+$ source venv/bin/activate
+
+# 4. Instalar dependencias
+$ pip install -r requirements.txt
+
 # Iniciar la app
 $ python3 main.py
 ```
@@ -54,9 +68,7 @@ BOT_TOKEN=Your_Own_Bot_Token
 SPOTIFY_ID=Your_Own_Spotify_ID
 SPOTIFY_SECRET=Your_Own_Spotify_Secret
 BOT_PREFIX=Your_Wanted_Prefix_For_Vulkan
-SHOULD_AUTO_DISCONNECT_WHEN_ALONE=True #all settings can be set like this
-#etc... All settings can be set this way
-## Descargar
+SHOULD_AUTO_DISCONNECT_WHEN_ALONE=True
 ```
 
 ## **Funciones Adicionales**
