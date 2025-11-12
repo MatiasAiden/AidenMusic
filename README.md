@@ -42,6 +42,11 @@ $ vi .env
 # Si no llegarias a tener PIP instalado se instalaria (ejemplo para debian)
 $ sudo apt install pip
 
+# Además para que funcione tenes que tener instalado NodeJS
+
+sudo apt install nodejs npm
+
+
 # Te recomiendo crear un entorno virtual para instalar los requirements
 
 # 1. Instalar el paquete necesario
