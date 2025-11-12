@@ -39,6 +39,9 @@ $ git clone https://github.com/MatiasAiden/AidenMusic.git
 # Crear tu env
 $ vi .env
 
+# Si no llegarias a tener PIP instalado se instalaria (ejemplo para debian)
+$ sudo apt install pip
+
 # Iniciar la app
 $ python3 main.py
 ```
